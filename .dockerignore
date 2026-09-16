@@ -1,0 +1,57 @@
+# ==============================================================================
+# .dockerignore — keeps the build context lean and secrets out of the image
+# ==============================================================================
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.eggs/
+dist/
+build/
+wheels/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test & CI artifacts
+.pytest_cache/
+.benchmarks/
+.coverage
+htmlcov/
+*.junit.xml
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Environment files with real secrets — NEVER bake into the image
+.env
+
+# Large model caches — fetched at runtime via named volume
+.cache/
+*.bin
+*.safetensors
+
+# Documentation (not needed at runtime)
+*.md
+docs/
+
+# Docker files themselves (avoid recursive copy)
+Dockerfile
+docker-compose.yml
+.dockerignore

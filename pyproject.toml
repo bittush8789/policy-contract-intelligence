@@ -1,0 +1,29 @@
+# ==============================================================================
+# Ruff — Python Linter Configuration
+# Used by the "Lint & Code Quality" job in GitHub Actions CI/CD pipeline.
+# ==============================================================================
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # Pyflakes (undefined names, unused imports)
+    "I",   # isort (import ordering)
+    "B",   # flake8-bugbear (common bugs & design issues)
+    "UP",  # pyupgrade (modern Python syntax)
+]
+ignore = [
+    "E501",   # Line too long (managed by line-length above)
+    "B008",   # Function calls in default arguments (FastAPI Depends pattern)
+    "UP007",  # Use X | Y for union types (keep Optional[] for clarity)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["backend", "tests"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["F811"]   # Allow redefinition of fixtures in tests

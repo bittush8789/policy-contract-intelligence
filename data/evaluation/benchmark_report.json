@@ -1,0 +1,325 @@
+{
+  "total_samples": 7,
+  "mean_faithfulness": 0.9714,
+  "mean_answer_relevancy": 0.9262,
+  "mean_context_precision": 0.9691,
+  "mean_context_recall": 1.0,
+  "overall_rag_score": 0.9654,
+  "sample_evaluations": [
+    {
+      "sample_id": "eval_01",
+      "question": "What is the annual leave entitlement?",
+      "generated_answer": "Full‑time permanent employees receive **25 days of paid annual leave per calendar year**. (leave_policy.pdf, Page 1, Section 1: Annual Leave Entitlement)",
+      "ground_truth": "All full-time permanent employees are entitled to 25 days of paid annual leave per calendar year, accruing on a monthly pro-rata basis.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 1: Annual Leave Entitlement\nAll full-time permanent employees are entitled to 25 days of paid annual leave per calendar year.\nAnnual leave accrues on a monthly pro-rata basis from the employee's date of hire. Employees must\nsubmit leave requests via the HR portal at least two weeks in advance for absences exceeding three\nconsecutive business days.\nDocument: leave_policy.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 3: Leave Carry-Over Policy\nEmployees are strongly encouraged to take all accrued annual leave during the calendar year. A\nmaximum of 5 unused annual leave days may be carried over into the following year, and\ncarried-over days must be utilized within the first quarter (by March 31). Unused days beyond 5 will\nbe forfeited without financial compensation.\nDocument: leave_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 2: Sick & Medical Leave\nEmployees receive up to 10 days of paid sick leave per year for illness, medical appointments, or\ncaring for an immediate family member. Any sick leave absence lasting longer than three consecutive\nbusiness days requires a formal medical practitioner certificate submitted to HR upon return.\nDocument: leave_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · EMPLOYEE HANDBOOK\nSection 1: Company Mission & Values\nWelcome to Enterprise Corp. Our mission is to deliver world-class intelligence and enterprise services\nwith the highest standards of integrity, innovation, and client satisfaction. All employees are expected\nto act with transparency, mutual respect, and accountability in all professional engagements.\nDocument: employee_handbook.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 1: Eligibility & Application\nRegular full-time employees who have completed at least ninety (90) days of continuous service with\nsatisfactory performance evaluations are eligible to apply for remote work arrangements. Remote\nwork requests require written approval from both the Department Manager and the Human\nResources Business Partner.\nDocument: remote_work_policy.pdf  |  Page 1\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "leave_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Annual Leave Entitlement"
+        },
+        {
+          "document": "leave_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Leave Carry-Over Policy"
+        },
+        {
+          "document": "leave_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Sick & Medical Leave"
+        },
+        {
+          "document": "employee_handbook.pdf",
+          "page": 1,
+          "section": "Section 1: Company Mission & Values"
+        },
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Eligibility & Application"
+        }
+      ],
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "rag_score": 1.0
+    },
+    {
+      "sample_id": "eval_02",
+      "question": "What is the termination notice period?",
+      "generated_answer": "The agreement allows either party to terminate without cause by giving **thirty (30) days’ prior written notice** to the other party.【vendor_contract.pdf | Page 3 | Section 3: Term & Termination Notice Period】",
+      "ground_truth": "Either party may terminate this agreement without cause upon thirty (30) days prior written notice to the other party.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · VENDOR CONTRACT\nSection 3: Term & Termination Notice Period\nThis Agreement commences on the Effective Date for an initial term of two (2) years. Either party may\nterminate this Agreement without cause upon thirty (30) days prior written notice to the other party. In\nthe event of material breach, the non-breaching party may terminate immediately if such breach\nremains uncured for fifteen (15) business days.\nDocument: vendor_contract.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · EMPLOYEE HANDBOOK\nSection 3: Disciplinary Procedures\nFailure to comply with company policies will result in disciplinary action up to and including\ntermination. The disciplinary stages typically proceed as: verbal warning, formal written warning,\nperformance improvement plan (30 days), and termination. In cases of gross misconduct, immediate\ntermination may occur.\nDocument: employee_handbook.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PRIVACY POLICY\nSection 3: Data Retention & Secure Disposal\nCustomer and transaction records are retained for seven (7) years following contract termination to\ncomply with statutory and audit obligations. Upon expiry of retention periods, records are permanently\npurged or securely shredded in accordance with NIST SP 800-88 guidelines.\nDocument: privacy_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 1: Annual Leave Entitlement\nAll full-time permanent employees are entitled to 25 days of paid annual leave per calendar year.\nAnnual leave accrues on a monthly pro-rata basis from the employee's date of hire. Employees must\nsubmit leave requests via the HR portal at least two weeks in advance for absences exceeding three\nconsecutive business days.\nDocument: leave_policy.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · EMPLOYEE HANDBOOK\nSection 2: Code of Conduct & Working Hours\nStandard working hours are 40 hours per week, Monday through Friday, 9:00 AM to 5:00 PM local\ntime, with a one-hour lunch period. Employees must treat colleagues, vendors, and clients with\nprofessional dignity. Harassment, discrimination, or abusive conduct of any kind is strictly prohibited.\nDocument: employee_handbook.pdf  |  Page 2\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "vendor_contract.pdf",
+          "page": 3,
+          "section": "Section 3: Term & Termination Notice Period"
+        },
+        {
+          "document": "employee_handbook.pdf",
+          "page": 3,
+          "section": "Section 3: Disciplinary Procedures"
+        },
+        {
+          "document": "privacy_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Data Retention & Secure Disposal"
+        },
+        {
+          "document": "leave_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Annual Leave Entitlement"
+        },
+        {
+          "document": "employee_handbook.pdf",
+          "page": 2,
+          "section": "Section 2: Code of Conduct & Working Hours"
+        }
+      ],
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "rag_score": 1.0
+    },
+    {
+      "sample_id": "eval_03",
+      "question": "Who is eligible for remote work?",
+      "generated_answer": "Regular full‑time employees who have completed at least ninety (90) days of continuous service with satisfactory performance evaluations are eligible to apply for remote‑work arrangements. (remote_work_policy.pdf | Page 1 | Section 1: Eligibility & Application)",
+      "ground_truth": "Regular full-time employees who have completed at least ninety (90) days of continuous service with satisfactory performance evaluations are eligible to apply.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 1: Eligibility & Application\nRegular full-time employees who have completed at least ninety (90) days of continuous service with\nsatisfactory performance evaluations are eligible to apply for remote work arrangements. Remote\nwork requests require written approval from both the Department Manager and the Human\nResources Business Partner.\nDocument: remote_work_policy.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 3: Equipment & Home Office Stipend\nThe company provides a standard corporate laptop and peripherals. Eligible remote employees may\nclaim a one-time home office setup stipend of up to $500 for ergonomic desk equipment upon\nsubmitting itemized receipts within 60 days of approval.\nDocument: remote_work_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 2: Working Hours & Core Availability\nRemote employees must maintain regular working schedules and remain accessible via Slack, email,\nand video conferencing during mandatory core collaboration hours, defined as 10:00 AM to 4:00 PM\nlocal time.\nDocument: remote_work_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 1: Annual Leave Entitlement\nAll full-time permanent employees are entitled to 25 days of paid annual leave per calendar year.\nAnnual leave accrues on a monthly pro-rata basis from the employee's date of hire. Employees must\nsubmit leave requests via the HR portal at least two weeks in advance for absences exceeding three\nconsecutive business days.\nDocument: leave_policy.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 2: Sick & Medical Leave\nEmployees receive up to 10 days of paid sick leave per year for illness, medical appointments, or\ncaring for an immediate family member. Any sick leave absence lasting longer than three consecutive\nbusiness days requires a formal medical practitioner certificate submitted to HR upon return.\nDocument: leave_policy.pdf  |  Page 2\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Eligibility & Application"
+        },
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Equipment & Home Office Stipend"
+        },
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Working Hours & Core Availability"
+        },
+        {
+          "document": "leave_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Annual Leave Entitlement"
+        },
+        {
+          "document": "leave_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Sick & Medical Leave"
+        }
+      ],
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "rag_score": 1.0
+    },
+    {
+      "sample_id": "eval_04",
+      "question": "What are the corporate password requirements?",
+      "generated_answer": "Enterprise Corp requires that all corporate account passwords be at least **14 characters long** and include a mix of **uppercase letters, lowercase letters, numbers, and special symbols**. Passwords must **not contain user names or dictionary words**. Additionally, **Multi‑Factor Authentication (MFA) is mandatory** for all internal systems, VPN access, and cloud email.  \n\n*Source: information_security_policy.pdf, Page 1, Section 1: Password & Authentication Standards.*",
+      "ground_truth": "All corporate accounts require passwords with a minimum length of 14 characters, combining uppercase letters, lowercase letters, numbers, and special symbols. Multi-Factor Authentication (MFA) is strictly mandatory.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · INFORMATION SECURITY POLICY\nSection 1: Password & Authentication Standards\nAll corporate accounts require passwords with a minimum length of 14 characters, combining\nuppercase letters, lowercase letters, numbers, and special symbols. Passwords must not contain\nuser names or dictionary words. Multi-Factor Authentication (MFA) is strictly mandatory for all internal\nsystems, VPN access, and cloud email.\nDocument: information_security_policy.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · INFORMATION SECURITY POLICY\nSection 2: Device Encryption & Clean Desk Policy\nAll company laptops, workstations, and mobile devices accessing corporate data must employ\nfull-disk encryption using 256-bit AES (BitLocker for Windows, FileVault for macOS). Under the Clean\nDesk Policy, sensitive documents and portable storage media must be locked in drawers whenever\nworkstations are unattended.\nDocument: information_security_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · INFORMATION SECURITY POLICY\nSection 3: Security Incident Reporting\nAny suspected security breach, unauthorized access, lost device, or phishing attempt must be\nreported immediately, and no later than one (1) hour following discovery, to the Security Operations\nCenter via security@company.com.\nDocument: information_security_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PRIVACY POLICY\nSection 2: Data Subject Rights & Fulfillment\nIndividuals have the right to request access, correction, data portability, or erasure of their personal\ninformation. All verified data subject access requests (DSARs) must be fulfilled by the Privacy Office\nwithin thirty (30) calendar days.\nDocument: privacy_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PRIVACY POLICY\nSection 1: Data Protection Principles\nEnterprise Corp processes personal data in strict compliance with the General Data Protection\nRegulation (GDPR), the California Consumer Privacy Act (CCPA), and applicable global privacy laws.\nData collection is limited strictly to necessary business purposes.\nDocument: privacy_policy.pdf  |  Page 1\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "information_security_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Password & Authentication Standards"
+        },
+        {
+          "document": "information_security_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Device Encryption & Clean Desk Policy"
+        },
+        {
+          "document": "information_security_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Security Incident Reporting"
+        },
+        {
+          "document": "privacy_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Data Subject Rights & Fulfillment"
+        },
+        {
+          "document": "privacy_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Data Protection Principles"
+        }
+      ],
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.7667,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "rag_score": 0.8717
+    },
+    {
+      "sample_id": "eval_05",
+      "question": "What approval is required for procurement over $50,000?",
+      "generated_answer": "Purchases exceeding $50,000 must be approved by the Vice President and the Chief Financial Officer (CFO), and must be supported by at least three competitive bids that are submitted to the Procurement Committee. 【procurement_policy.pdf | Page 2 | Section 2: Approval Thresholds & Competitive Bidding】",
+      "ground_truth": "Purchases exceeding $50,000 require Vice President and Chief Financial Officer (CFO) approval along with a minimum of three competitive bids submitted to the Procurement Committee.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · PROCUREMENT POLICY\nSection 2: Approval Thresholds & Competitive Bidding\nApproval thresholds are defined as follows: Purchases up to $10,000 require Department Manager\napproval. Purchases from $10,001 to $50,000 require Department Director approval and two\ncompetitive quotes. Purchases exceeding $50,000 require Vice President and Chief Financial Officer\n(CFO) approval along with a minimum of three competitive bids submitted to the Procurement\nCommittee.\nDocument: procurement_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PROCUREMENT POLICY\nSection 1: Purpose & Authority Matrix\nThis policy establishes purchasing thresholds and required approvals for all corporate expenditures.\nAll purchase requests must have an approved budget allocation prior to contract execution.\nDocument: procurement_policy.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 3: Equipment & Home Office Stipend\nThe company provides a standard corporate laptop and peripherals. Eligible remote employees may\nclaim a one-time home office setup stipend of up to $500 for ergonomic desk equipment upon\nsubmitting itemized receipts within 60 days of approval.\nDocument: remote_work_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PROCUREMENT POLICY\nSection 3: Vendor Vetting & Conflict of Interest\nAll new vendors must complete security, financial, and compliance vetting before onboarding.\nEmployees must disclose any personal or financial relationship with prospective suppliers in writing to\nLegal.\nDocument: procurement_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 1: Eligibility & Application\nRegular full-time employees who have completed at least ninety (90) days of continuous service with\nsatisfactory performance evaluations are eligible to apply for remote work arrangements. Remote\nwork requests require written approval from both the Department Manager and the Human\nResources Business Partner.\nDocument: remote_work_policy.pdf  |  Page 1\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "procurement_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Approval Thresholds & Competitive Bidding"
+        },
+        {
+          "document": "procurement_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Purpose & Authority Matrix"
+        },
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Equipment & Home Office Stipend"
+        },
+        {
+          "document": "procurement_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Vendor Vetting & Conflict of Interest"
+        },
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Eligibility & Application"
+        }
+      ],
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.7667,
+      "context_precision": 0.9167,
+      "context_recall": 1.0,
+      "rag_score": 0.925
+    },
+    {
+      "sample_id": "eval_06",
+      "question": "What is the customer data retention period?",
+      "generated_answer": "The retention period for customer (and transaction) records is **seven (7) years after contract termination**【privacy_policy.pdf | Page 3 | Section 3: Data Retention & Secure Disposal】.",
+      "ground_truth": "Customer and transaction records are retained for seven (7) years following contract termination to comply with statutory and audit obligations.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · PRIVACY POLICY\nSection 3: Data Retention & Secure Disposal\nCustomer and transaction records are retained for seven (7) years following contract termination to\ncomply with statutory and audit obligations. Upon expiry of retention periods, records are permanently\npurged or securely shredded in accordance with NIST SP 800-88 guidelines.\nDocument: privacy_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PRIVACY POLICY\nSection 2: Data Subject Rights & Fulfillment\nIndividuals have the right to request access, correction, data portability, or erasure of their personal\ninformation. All verified data subject access requests (DSARs) must be fulfilled by the Privacy Office\nwithin thirty (30) calendar days.\nDocument: privacy_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · INFORMATION SECURITY POLICY\nSection 3: Security Incident Reporting\nAny suspected security breach, unauthorized access, lost device, or phishing attempt must be\nreported immediately, and no later than one (1) hour following discovery, to the Security Operations\nCenter via security@company.com.\nDocument: information_security_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · VENDOR CONTRACT\nSection 3: Term & Termination Notice Period\nThis Agreement commences on the Effective Date for an initial term of two (2) years. Either party may\nterminate this Agreement without cause upon thirty (30) days prior written notice to the other party. In\nthe event of material breach, the non-breaching party may terminate immediately if such breach\nremains uncured for fifteen (15) business days.\nDocument: vendor_contract.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PRIVACY POLICY\nSection 1: Data Protection Principles\nEnterprise Corp processes personal data in strict compliance with the General Data Protection\nRegulation (GDPR), the California Consumer Privacy Act (CCPA), and applicable global privacy laws.\nData collection is limited strictly to necessary business purposes.\nDocument: privacy_policy.pdf  |  Page 1\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "privacy_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Data Retention & Secure Disposal"
+        },
+        {
+          "document": "privacy_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Data Subject Rights & Fulfillment"
+        },
+        {
+          "document": "information_security_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Security Incident Reporting"
+        },
+        {
+          "document": "vendor_contract.pdf",
+          "page": 3,
+          "section": "Section 3: Term & Termination Notice Period"
+        },
+        {
+          "document": "privacy_policy.pdf",
+          "page": 1,
+          "section": "Section 1: Data Protection Principles"
+        }
+      ],
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.8667,
+      "context_recall": 1.0,
+      "rag_score": 0.9733
+    },
+    {
+      "sample_id": "eval_07",
+      "question": "What is the company stock option vesting schedule?",
+      "generated_answer": "I could not find this information in the available documents.",
+      "ground_truth": "I could not find this information in the available documents.",
+      "retrieved_contexts": [
+        "ENTERPRISE CORP · EMPLOYEE HANDBOOK\nSection 2: Code of Conduct & Working Hours\nStandard working hours are 40 hours per week, Monday through Friday, 9:00 AM to 5:00 PM local\ntime, with a one-hour lunch period. Employees must treat colleagues, vendors, and clients with\nprofessional dignity. Harassment, discrimination, or abusive conduct of any kind is strictly prohibited.\nDocument: employee_handbook.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · REMOTE WORK POLICY\nSection 2: Working Hours & Core Availability\nRemote employees must maintain regular working schedules and remain accessible via Slack, email,\nand video conferencing during mandatory core collaboration hours, defined as 10:00 AM to 4:00 PM\nlocal time.\nDocument: remote_work_policy.pdf  |  Page 2\nCONFIDENTIAL",
+        "ENTERPRISE CORP · PROCUREMENT POLICY\nSection 3: Vendor Vetting & Conflict of Interest\nAll new vendors must complete security, financial, and compliance vetting before onboarding.\nEmployees must disclose any personal or financial relationship with prospective suppliers in writing to\nLegal.\nDocument: procurement_policy.pdf  |  Page 3\nCONFIDENTIAL",
+        "ENTERPRISE CORP · EMPLOYEE HANDBOOK\nSection 1: Company Mission & Values\nWelcome to Enterprise Corp. Our mission is to deliver world-class intelligence and enterprise services\nwith the highest standards of integrity, innovation, and client satisfaction. All employees are expected\nto act with transparency, mutual respect, and accountability in all professional engagements.\nDocument: employee_handbook.pdf  |  Page 1\nCONFIDENTIAL",
+        "ENTERPRISE CORP · LEAVE POLICY\nSection 3: Leave Carry-Over Policy\nEmployees are strongly encouraged to take all accrued annual leave during the calendar year. A\nmaximum of 5 unused annual leave days may be carried over into the following year, and\ncarried-over days must be utilized within the first quarter (by March 31). Unused days beyond 5 will\nbe forfeited without financial compensation.\nDocument: leave_policy.pdf  |  Page 3\nCONFIDENTIAL"
+      ],
+      "citations": [
+        {
+          "document": "employee_handbook.pdf",
+          "page": 2,
+          "section": "Section 2: Code of Conduct & Working Hours"
+        },
+        {
+          "document": "remote_work_policy.pdf",
+          "page": 2,
+          "section": "Section 2: Working Hours & Core Availability"
+        },
+        {
+          "document": "procurement_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Vendor Vetting & Conflict of Interest"
+        },
+        {
+          "document": "employee_handbook.pdf",
+          "page": 1,
+          "section": "Section 1: Company Mission & Values"
+        },
+        {
+          "document": "leave_policy.pdf",
+          "page": 3,
+          "section": "Section 3: Leave Carry-Over Policy"
+        }
+      ],
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.95,
+      "context_precision": 1.0,
+      "context_recall": 1.0,
+      "rag_score": 0.9875
+    }
+  ]
+}

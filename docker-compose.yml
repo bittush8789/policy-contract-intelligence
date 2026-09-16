@@ -1,0 +1,81 @@
+# ==============================================================================
+# Enterprise RAG Assistant — Docker Compose
+# Usage:
+#   1. Copy .env.example → .env and fill in your API keys
+#   2. docker compose up --build
+#   3. Open http://localhost:8000
+# ==============================================================================
+
+version: "3.9"
+
+services:
+  # ── Application (FastAPI + Frontend) ────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime          # Use the slim production stage
+    container_name: enterprise-rag-app
+    restart: unless-stopped
+
+    # ── Port Mapping ────────────────────────────────────────────────────────
+    ports:
+      - "${PORT:-8000}:8000"
+
+    # ── Environment Variables ───────────────────────────────────────────────
+    # Values are loaded from the .env file in the project root.
+    # Sensitive keys (Pinecone, Groq) must be set there — they are NOT baked
+    # into the image to keep secrets out of layers.
+    env_file:
+      - .env
+    environment:
+      # These override .env defaults where needed for the container context
+      HOST: "0.0.0.0"
+      PORT: "8000"
+      # ML framework guards
+      USE_TF: "0"
+      TRANSFORMERS_NO_TF: "1"
+      TF_ENABLE_ONEDNN_OPTS: "0"
+      TOKENIZERS_PARALLELISM: "false"
+
+    # ── Volumes ─────────────────────────────────────────────────────────────
+    volumes:
+      # Persist the processed chunks cache so re-ingestion is not required on
+      # every container restart.
+      - rag-data:/app/data
+
+      # Persist downloaded HuggingFace model weights across restarts.
+      # This prevents downloading large models (BGE embed + reranker) on each
+      # container start.
+      - hf-cache:/root/.cache/huggingface
+
+    # ── Resource Limits ─────────────────────────────────────────────────────
+    # Adjust based on your host machine. The reranker model needs ~2 GB RAM.
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 1G
+
+    # ── Health Check ────────────────────────────────────────────────────────
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s       # Allow extra time for model loading on first start
+
+    # ── Logging ─────────────────────────────────────────────────────────────
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "5"
+
+# ── Named Volumes ──────────────────────────────────────────────────────────────
+volumes:
+  rag-data:
+    driver: local
+  hf-cache:
+    driver: local
