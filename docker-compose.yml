@@ -37,6 +37,10 @@ services:
       TRANSFORMERS_NO_TF: "1"
       TF_ENABLE_ONEDNN_OPTS: "0"
       TOKENIZERS_PARALLELISM: "false"
+      # LangSmith Observability (reads from .env via env_file above)
+      # Override here to explicitly control tracing in the container
+      LANGCHAIN_PROJECT: "${LANGCHAIN_PROJECT:-enterprise-rag-assistant}"
+      LANGSMITH_ENDPOINT: "${LANGSMITH_ENDPOINT:-https://api.smith.langchain.com}"
 
     # ── Volumes ─────────────────────────────────────────────────────────────
     volumes:

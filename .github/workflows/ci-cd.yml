@@ -305,6 +305,8 @@ jobs:
           USE_TF: "0"
           TRANSFORMERS_NO_TF: "1"
           TOKENIZERS_PARALLELISM: "false"
+          # Disable LangSmith tracing in CI offline runs (no real API key needed)
+          LANGCHAIN_TRACING_V2: "false"
         run: |
           python -m pytest tests/test_evaluation.py \
             -v \

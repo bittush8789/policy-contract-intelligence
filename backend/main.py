@@ -11,6 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from backend.api.chat import router as chat_router
 from backend.api.evaluation import router as evaluation_router
 from backend.config import settings
+from backend.observability.langsmith import setup_langsmith, get_run_url, is_tracing_enabled
 
 # Setup standard structured logging
 logging.basicConfig(
@@ -23,6 +24,14 @@ logger = logging.getLogger("enterprise_rag")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifecycle event handler for application startup and shutdown."""
+    # ── LangSmith must be initialized FIRST before any LangChain component ──
+    setup_langsmith(
+        api_key=settings.LANGCHAIN_API_KEY,
+        project=settings.LANGCHAIN_PROJECT,
+        endpoint=settings.LANGSMITH_ENDPOINT,
+        enabled=settings.LANGCHAIN_TRACING_V2,
+    )
+
     logger.info("=" * 60)
     logger.info("Initializing Enterprise RAG Assistant Application")
     logger.info(f"Model: {settings.GROQ_MODEL} (Provider: Groq)")
@@ -30,6 +39,7 @@ async def lifespan(app: FastAPI):
     logger.info(f"Reranker: {settings.RERANKER_MODEL}")
     logger.info(f"Documents Directory: {settings.DATA_DIR}")
     logger.info(f"Chunks Cache: {settings.CHUNKS_CACHE_FILE}")
+    logger.info(f"LangSmith Tracing: {'ENABLED' if is_tracing_enabled() else 'DISABLED'}")
     logger.info("=" * 60)
     yield
     logger.info("Enterprise RAG Assistant Application shut down gracefully.")
@@ -80,6 +90,30 @@ async def health_check() -> JSONResponse:
                 "hybrid_top_k": settings.HYBRID_TOP_K,
                 "rerank_top_k": settings.RERANK_TOP_K,
             },
+        }
+    )
+
+
+@app.get(
+    "/api/observability",
+    tags=["System"],
+    summary="LangSmith Observability Status",
+    response_description="LangSmith tracing configuration and dashboard URL",
+)
+async def observability_status() -> JSONResponse:
+    """Return the current LangSmith tracing status and project dashboard URL."""
+    tracing_on = is_tracing_enabled()
+    return JSONResponse(
+        content={
+            "langsmith_tracing": tracing_on,
+            "project": settings.LANGCHAIN_PROJECT if tracing_on else None,
+            "dashboard_url": get_run_url(),
+            "endpoint": settings.LANGSMITH_ENDPOINT if tracing_on else None,
+            "note": (
+                "Tracing active — all RAG pipeline runs are being recorded in LangSmith."
+                if tracing_on
+                else "Tracing disabled. Set LANGCHAIN_TRACING_V2=true and LANGCHAIN_API_KEY in .env to enable."
+            ),
         }
     )
 

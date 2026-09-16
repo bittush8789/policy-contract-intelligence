@@ -65,6 +65,12 @@ class Settings(BaseSettings):
     ENABLE_PII_REDACTION: bool = Field(default=True, description="Toggle for PII detection and masking")
     BLOCK_PROMPT_INJECTION: bool = Field(default=True, description="Block adversarial prompt injection attempts")
 
+    # LangSmith Observability
+    LANGCHAIN_TRACING_V2: bool = Field(default=False, description="Enable LangSmith tracing (set True + API key to activate)")
+    LANGCHAIN_API_KEY: str = Field(default="", description="LangSmith API key from smith.langchain.com")
+    LANGCHAIN_PROJECT: str = Field(default="enterprise-rag-assistant", description="LangSmith project name for trace grouping")
+    LANGSMITH_ENDPOINT: str = Field(default="https://api.smith.langchain.com", description="LangSmith API endpoint")
+
 
 # Reusable singleton instance
 settings = Settings()

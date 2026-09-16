@@ -6,6 +6,7 @@ import logging
 from typing import Any, Dict, List, Optional
 from langchain_core.documents import Document
 from langchain_core.language_models.chat_models import BaseChatModel
+from langsmith import traceable
 from backend.chains.prompts import RAG_PROMPT_TEMPLATE
 from backend.citations.formatter import extract_citations
 from backend.config import settings
@@ -68,6 +69,11 @@ class RAGService:
 
         return "\n\n" + "\n\n---\n\n".join(context_blocks) + "\n\n"
 
+    @traceable(
+        run_type="chain",
+        name="RAG Pipeline",
+        tags=["rag", "enterprise", "hybrid-retrieval"],
+    )
     async def answer_question(self, question: str) -> Dict[str, Any]:
         """Execute end-to-end RAG workflow for a user query."""
         clean_question = question.strip()
